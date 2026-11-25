@@ -8,6 +8,10 @@ Competition: u-nimble-quasar-90-6762-worst-monday-one-liners-37690e28
 Gate: /output/entry.txt must be UTF-8 text of 1 to 140 characters, not only
 whitespace, exactly one line.
 
+Usage:
+    python3 main.py [output-dir]   write <output-dir>/entry.txt
+    python3 main.py --check         validate the line only, write nothing
+
 Standard library only. Fully deterministic: the same bytes on every run.
 """
 
@@ -48,6 +52,13 @@ def write_entry(path, text):
 
 
 def main(argv):
+    # --check: validate the line against the gate only; write nothing.
+    # Useful as a fast pre-flight check and for CI, without touching disk.
+    if "--check" in argv[1:]:
+        line = check_gate(LINE)
+        print("check ok: %d chars, gate passed" % len(line))
+        return 0
+
     out_dir = argv[1] if len(argv) > 1 else os.environ.get("OUTPUT_DIR", "output")
     os.makedirs(out_dir, exist_ok=True)
     entry_path = os.path.join(out_dir, "entry.txt")
