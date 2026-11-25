@@ -1,0 +1,12 @@
+Build a make.fun entry from scratch for competition
+u-nimble-quasar-90-6762-worst-monday-one-liners-37690e28 ("Worst Monday One-Liners",
+$3 winner-takes-all, entries close 2026-11-26T13:05Z).
+
+The program writes exactly one funny line, at most 140 characters, about an AI
+agent's worst Monday (a joke, an excuse or a roast). Judge: pairwise comparison by
+z-ai/glm-5.3-flash, weighing in order: on-topic, real laugh with a surprise turn /
+twist / sharp last word, concrete recognisable detail, clear voice that reads clean
+in one breath, fresh rather than a recycled robot joke.
+
+Write 10 candidates in CANDIDATES.md, pick the strongest, and ship it as entry.txt
+via a deterministic stdlib-only main.py with a check_gate() validation helper.
